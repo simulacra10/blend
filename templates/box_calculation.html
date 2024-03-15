@@ -1,31 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Calculation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        html, body {
-            height: 100%;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .content {
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="content">
-        <h1>Box Calculation</h1>
+<!-- box_calculation.html -->
+{% extends "base.html" %}
+
+{% block title %}Box Calculation{% endblock %}
+
+{% block content %}
+    
+        <h1>Box Calculator</h1>
         <form method="post">
             <div class="form-group">
                 <label for="goal_boxes">Goal Boxes:</label>
@@ -41,11 +21,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Calculate</button>
         </form>
+        <p></p>
         {% if carts_needed %}
             <div class="alert alert-success mt-3">
                 <strong>Result:</strong> {{ carts_needed }} carts are needed. Total time: {{ hours }} hours and {{ minutes }} minutes.
             </div>
+          
         {% endif %}
-    </div>
-</body>
-</html>
+        <p>
+            <a href="/"><button type="button" class="btn btn-success btn-sm">Back</button></a>
+        </p>
+{% endblock %}

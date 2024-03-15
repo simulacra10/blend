@@ -1,9 +1,10 @@
+<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blend Calculator</title>
+    <title>{% block title %}Default Title{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         html, body {
@@ -18,22 +19,16 @@
         }
         .content {
             width: 100%;
-            max-width: 400px; /* Adjust based on your content */
+            max-width: 400px;
             text-align: center;
-        }
-        .link-container {
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <h1>Welcome to the Blend Calculator</h1>
-
-        <div class="link-container">
-            <a href="/box-calculation" class="btn btn-primary btn-lg btn-block">Box Calculation</a>
-            <a href="/cart-time" class="btn btn-primary btn-lg btn-block">Cart Time Calculation</a>
-        </div>
+        {% block content %}
+        <!-- Content overridden in child templates -->
+        {% endblock %}
     </div>
 </body>
 </html>

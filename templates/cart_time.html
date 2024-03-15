@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Time Calculator</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        html, body {
-            height: 100%;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .content {
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="content">
+<!-- cart_time.html -->
+{% extends "base.html" %}
+
+{% block title %}Cart Time Calculator{% endblock %}
+
+{% block content %}
         <h1>Cart Time Calculator</h1>
         <form method="post">
             <div class="form-group">
@@ -36,8 +15,11 @@
         {% if hours is not none %}
             <div class="alert alert-success mt-3">
                 <strong>Result:</strong> Time to complete one cart is {{ hours }} hours and {{ minutes }} minutes.
+                
             </div>
+            
         {% endif %}
+        <p><a href="/"><button type="button" class="btn btn-success btn-sm">Back</button></a></p>
     </div>
-</body>
-</html>
+
+{% endblock %}
