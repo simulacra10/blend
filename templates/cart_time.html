@@ -5,22 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Time Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .content {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Cart Time Calculator</h1>
-        <form method="post" class="mb-3">
+    <div class="content">
+        <h1>Cart Time Calculator</h1>
+        <form method="post">
             <div class="form-group">
                 <label for="trays_per_minute">Trays per Minute:</label>
                 <input type="number" step="any" class="form-control" id="trays_per_minute" name="trays_per_minute" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Calculate Time</button>
+            <button type="submit" class="btn btn-primary">Calculate Time</button>
         </form>
         {% if hours is not none %}
-        <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Calculation Result</h4>
-            <p>Time to complete one cart with {{ trays_per_minute }} trays per minute: {{ hours }} hours and {{ minutes }} minutes.</p>
-        </div>
+            <div class="alert alert-success mt-3">
+                <strong>Result:</strong> Time to complete one cart is {{ hours }} hours and {{ minutes }} minutes.
+            </div>
         {% endif %}
     </div>
 </body>

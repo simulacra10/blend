@@ -3,51 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Calculator</title>
+    <title>Box Calculation</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        body {
-            padding-top: 40px;
+        html, body {
+            height: 100%;
         }
-        .form-container {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .content {
+            width: 100%;
             max-width: 400px;
-            margin: auto;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                <div class="form-container">
-                    <h1 class="text-center">Box Calculator</h1>
-                    <form method="post">
-                        <div class="form-group">
-                            <label for="goal_boxes">Goal Boxes:</label>
-                            <input type="number" class="form-control" id="goal_boxes" name="goal_boxes" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cartons_per_box">Cartons per Box:</label>
-                            <input type="number" class="form-control" id="cartons_per_box" name="cartons_per_box" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="packets_per_carton">Packets per Carton:</label>
-                            <input type="number" class="form-control" id="packets_per_carton" name="packets_per_carton" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
-                    </form>
-                    {% if carts_needed %}
-                    <div class="mt-3">
-                        <h3 class="text-center">Results</h3>
-                        <p>Carts needed: {{ carts_needed }}</p>
-                        <p>Total time: {{ hours }} hours and {{ minutes }} minutes</p>
-			<p>Add new numbers and hit calculate to refresh.</p>
-                    </div>
-                    {% endif %}
-                </div>
+    <div class="content">
+        <h1>Box Calculation</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="goal_boxes">Goal Boxes:</label>
+                <input type="number" class="form-control" id="goal_boxes" name="goal_boxes" required>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="cartons_per_box">Cartons per Box:</label>
+                <input type="number" class="form-control" id="cartons_per_box" name="cartons_per_box" required>
+            </div>
+            <div class="form-group">
+                <label for="packets_per_carton">Packets per Carton:</label>
+                <input type="number" class="form-control" id="packets_per_carton" name="packets_per_carton" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+        {% if carts_needed %}
+            <div class="alert alert-success mt-3">
+                <strong>Result:</strong> {{ carts_needed }} carts are needed. Total time: {{ hours }} hours and {{ minutes }} minutes.
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>
-
