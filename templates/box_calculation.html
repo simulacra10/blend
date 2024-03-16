@@ -22,9 +22,12 @@
             <button type="submit" class="btn btn-primary">Calculate</button>
         </form>
         <p></p>
-        {% if carts_needed %}
+        {% if carts_needed is not none %}
             <div class="alert alert-success mt-3">
                 <strong>Result:</strong> {{ carts_needed }} carts are needed. Total time: {{ hours }} hours and {{ minutes }} minutes.
+                <p>
+                    <strong>*</strong> <i>Time is straight time. Does not include downtime or breaks.</i>
+                </p>
             </div>
           
         {% endif %}
