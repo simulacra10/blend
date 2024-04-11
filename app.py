@@ -2,6 +2,13 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+def calculate_trays_per_minute(time=60, trays_per_minute=0):
+    """
+    Calculate the number of trays that can be processed in a minute.
+    """
+    trays_per_minute = 60 / time
+    return trays_per_minute
+
 def calculate_carts_and_time_for_goal_boxes(goal_boxes, cartons_per_box, packets_per_carton, packets_per_cart=8000, time_per_cart_hours=2, time_per_cart_minutes=30):
     """
     Calculate the number of carts needed and total time to process to reach a goal number of boxes.
@@ -25,6 +32,10 @@ def calculate_time_for_cart(trays_per_minute, stacks_per_cart=32, trays_per_stac
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/tpm')
+def tray_calculation():
+    return render_template('tpm.html')
 
 @app.route('/box-calculation', methods=['GET', 'POST'])
 def box_calculation():

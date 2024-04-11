@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Stopwatch{% endblock %}
+
+{% block content %}
+
+            <div class="container">
+                <h1>TPM Stopwatch</h1>
+                        <ol class="text-left">
+                            <li>Pick a fixed point.</li>
+                            <li>Click the start button to start the stopwatch.</li>
+                            <li>Click the stop button to stop the stopwatch.</li>
+                            <li>Click the reset button to reset the stopwatch.</li>
+                        </ol>
+                        TPM results will display in red. 
+                    
+
+                <div  id="time">
+                    <h1>
+                        <span class="digit" id="sec">
+                        00</span>
+                    <span class="txt">Sec</span>
+                    
+                    </h1>
+                </div>
+                <div id="buttons">
+                    <button class="btn btn-success" id="start">
+                        Start</button>
+                    <button class="btn btn-danger" id="stop">
+                        Stop</button>
+                    <button class="btn btn-primary" id="reset">
+                        Reset</button>
+                </div>
+                <div class="text-danger" id="result">
+                    <span class="txt">TPM: </span>
+                    <span class="digit" id="tpm">
+                        0</span>
+            </div>
+
+{% endblock %}
